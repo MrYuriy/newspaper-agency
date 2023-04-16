@@ -35,8 +35,7 @@ class Newspaper(models.Model):
         on_delete=models.CASCADE
     )
     publishers = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name="newspaper"
+        settings.AUTH_USER_MODEL, related_name="newspaper"
     )
 
     class Meta:
