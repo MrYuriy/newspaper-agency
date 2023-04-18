@@ -1,0 +1,113 @@
+[
+  {
+    "model": "newspaper.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Science"
+    }
+  },
+
+  {
+    "model": "newspaper.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Politics"
+    }
+  },
+
+    {
+    "model": "newspaper.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+
+    {
+    "model": "newspaper.redactor",
+    "pk": 1,
+    "fields": {
+      "years_of_experience": 3,
+      "username": "johndoe",
+      "email": "johndoe@example.com",
+      "password": "password",
+      "first_name": "John",
+      "last_name": "Doe"
+    }
+  },
+
+      {
+    "model": "newspaper.redactor",
+    "pk": 2,
+    "fields": {
+      "is_superuser": true,
+      "years_of_experience": 3,
+      "username": "yurii.admin",
+      "email": "yuriibabiuk@gmail.com",
+      "password": "ADM56984",
+      "first_name": "Yurii",
+      "last_name": "Babiuk"
+    }
+  },
+
+        {
+    "model": "newspaper.redactor",
+    "pk": 3,
+    "fields": {
+      "years_of_experience": 5,
+      "username": "janedoe",
+      "email": "janedoe@example.com",
+      "password": "password",
+      "first_name": "Jane",
+      "last_name": "Doe"
+    }
+  },
+
+  {
+    "model": "newspaper.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "Scientists Discover New Planet",
+      "content": "A group of scientists has discovered a new planet in a nearby galaxy.",
+      "published_date": "2023-04-18",
+      "topic": 1,
+      "publishers": [1]
+    }
+  },
+
+  {
+    "model": "newspaper.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "President Signs New Trade Agreement",
+      "content": "The president has signed a new trade agreement with several countries.",
+      "published_date": "2023-04-17",
+      "topic": 2,
+      "publishers": [2]
+    }
+  },
+
+    {
+    "model": "newspaper.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "President Signs New Trade Agreement",
+      "content": "The president has signed a new trade agreement with several countries.",
+      "published_date": "2023-04-17",
+      "topic": 2,
+      "publishers": [2]
+    }
+  },
+
+      {
+    "model": "newspaper.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "New App Helps You Find Parking Spaces",
+      "content": "A new mobile app has been released that helps drivers find available parking spaces in busy areas.",
+      "published_date": "2023-04-16",
+      "topic": 3,
+      "publishers": [1, 2]
+    }
+  }
+]
