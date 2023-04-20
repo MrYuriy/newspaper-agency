@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  {% if redactor_list %}
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>link</th>
+      <th>Years of experience</th>
+    </tr>
+  {% for redactor in redactor_list %}
+      <tr>
+        <td>{{ redactor.id }}</td>
+        <td><a href="#"{{ driver.username }}>Link</a></td>
+        <td>{{ redactor.username }}</td>
+        <td>{{ redactor.years_of_experience }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+    {% else %}
+      <p>There are no drivers in the service.</p>
+    {% endif %}
+{% endblock %}

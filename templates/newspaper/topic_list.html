@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  {% if topic_list %}
+    <ul>
+      {% for topic in topic_list %}
+      <li>
+          {{topic.name}}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

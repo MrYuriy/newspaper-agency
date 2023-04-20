@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+  {% block content %}
+    {% if newspaper_list %}
+
+        {% for newspaper in newspaper_list %}
+        <ul>
+          <li>
+          {{newspaper.title}}
+            <br>
+          {% for redactor in newspaper.publishers.all %}
+            {{redactor.username}}
+          {% endfor %}
+            <br>
+          {{newspaper.topic}}
+          {% for topic in newspaper.topic.all %}
+            {{topic.name}}
+          {% endfor %}
+          </li>
+        </ul>
+
+        {% endfor %}
+
+    {%endif%}
+  {% endblock %}
