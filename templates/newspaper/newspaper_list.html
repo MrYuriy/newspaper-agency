@@ -6,7 +6,10 @@
         {% for newspaper in newspaper_list %}
         <ul>
           <li>
-          {{newspaper.title}}
+            <a href="{%url 'newspaper:newspaper-detail' pk=newspaper.id %}">
+              {{newspaper.title}}
+            </a>
+
             <br>
           {% for redactor in newspaper.publishers.all %}
             {{redactor.username}}

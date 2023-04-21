@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+    {{newspaper.title}}
+     <br>
+     {% for redactor in newspaper.publishers.all %}
+      {{redactor.first_name }} {{redactor.last_name}}
+
+     {% endfor %}
+    <br>
+    {{newspaper.topic}}
+    {{newspaper.published_date}}
+    <br>
+    {{newspaper.content}}
+{%endblock%}
