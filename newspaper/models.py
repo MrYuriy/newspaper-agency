@@ -31,7 +31,7 @@ class Newspaper(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(
         Topic,
-        related_name="newspaper",
+        related_name="newspapers",
         on_delete=models.CASCADE
     )
     publishers = models.ManyToManyField(
@@ -43,3 +43,6 @@ class Newspaper(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.published_date}"
+
+    def get_absolute_url(self):
+        return reverse("newspaper:newspaper-detail", kwargs={"pk": self.pk})

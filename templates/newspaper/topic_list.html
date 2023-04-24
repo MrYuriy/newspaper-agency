@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
+<a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page"> Create </a>
   {% if topic_list %}
     <ul>
       {% for topic in topic_list %}
       <li>
-          {{topic.name}}
+          <a href="{% url 'newspaper:topic-detail' pk=topic.id %}" > {{topic.name}} </a>
       </li>
       {% endfor %}
     </ul>

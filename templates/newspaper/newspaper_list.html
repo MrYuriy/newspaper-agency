@@ -2,7 +2,11 @@
 {% load crispy_forms_filters %}
   {% block content %}
     {% if newspaper_list %}
-
+        <h1>
+          Newspaper List
+        </h1>
+       <div>
+             <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page"> Create </a>
         {% for newspaper in newspaper_list %}
         <ul>
           <li>
@@ -25,4 +29,5 @@
         {% endfor %}
 
     {%endif%}
+       </div>
   {% endblock %}

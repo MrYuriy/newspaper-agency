@@ -12,4 +12,12 @@
     {{newspaper.published_date}}
     <br>
     {{newspaper.content}}
+     <br>
+    <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger">
+      Delete
+    </a>
+
+    <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary">
+      Update
+    </a>
 {%endblock%}

@@ -2,6 +2,7 @@
 {% load crispy_forms_filters %}
 {% block content %}
   {% if redactor_list %}
+  <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page"> Create </a>
   <table class="table">
     <tr>
       <th>ID</th>
