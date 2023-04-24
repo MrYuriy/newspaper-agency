@@ -25,3 +25,12 @@ class NewspaperCreationUpdateForm(forms.ModelForm):
     class Meta:
         model = Newspaper
         fields = ["title", "content", "topic", "publishers"]
+
+
+class NewspaperSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by title"})
+    )

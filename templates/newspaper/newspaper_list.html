@@ -5,6 +5,7 @@
         <h1>
           Newspaper List
         </h1>
+{% include "includes/search_form.html" %}
        <div>
              <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page"> Create </a>
         {% for newspaper in newspaper_list %}
