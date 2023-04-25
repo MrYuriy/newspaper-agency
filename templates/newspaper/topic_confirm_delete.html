@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete newspaper {{ topic.name }}?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <a class="btn btn-primary" href="{% url 'newspaper:topic-detail' pk=topic.id %}">Cancel</a>
-  </form>
+  <section class="body-main-centring">
+    <h1>Are you sure you want to delete this topic?</h1>
+    <br>
+    {% if topic.newspapers.count %}
+      <h4>*Warning: this topic relates to {{ topic.newspapers.count }} newspaper{{ topic.newspapers.count|pluralize }}!</h4>
+    {% endif %}
+    <br>
+    <form action="" method="post">
+      {% csrf_token %}
+      <br>
+      <input type="submit" value="Yes" class="btn btn-danger">
+      <a class="btn btn-secondary" href="{% url 'newspaper:topic-detail' pk=topic.pk %}">Cancel</a>
+    </form>
+  </section>
 {% endblock %}

@@ -1,23 +1,20 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'base.html' %}
+
 {% block content %}
-    {{newspaper.title}}
-     <br>
-     {% for redactor in newspaper.publishers.all %}
-      {{redactor.first_name }} {{redactor.last_name}}
-
-     {% endfor %}
+  <section class="body-main-centring">
+    <h1 class="newspaper-detail-h1">{{ newspaper.title }}</h1>
     <br>
-    {{newspaper.topic}}
-    {{newspaper.published_date}}
-    <br>
-    {{newspaper.content}}
-     <br>
-    <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger">
-      Delete
-    </a>
-
-    <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary">
-      Update
-    </a>
-{%endblock%}
+    <p class="newspaper-content">{{ newspaper.content }}</p>
+    <p><i>{{ newspaper.date_of_publish }}</i></p>
+    <p>
+      <strong>Author{{ newspaper.publishers.count|pluralize }}:</strong>
+      {% for publisher in newspaper.publishers.all %}
+        {{ publisher.first_name }} {{ publisher.last_name }}
+      {% endfor %}
+    </p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-outline-primary">Edit this newspaper</a>
+      <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger my-xxl-3">Delete this newspaper</a>
+    {% endif %}
+  </section>
+{% endblock %}

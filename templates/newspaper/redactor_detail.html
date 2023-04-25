@@ -1,30 +1,29 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
-  <h1>
-    Username: {{ redactor.username }}
-  </h1>
-  <p><strong>First name:</strong> {{ redactor.first_name }}</p>
-  <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
-  <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
-  <div class="ml-3">
-    <h4>newspapers</h4>
-    {% for newspaper in redactor.newspaper.all %}
-        <hr>
-        <p><strong>Title:</strong> {{ newspaper.title }}</p>
-        <p><strong>Data:</strong> {{ newspaper.published_date }}</p>
-    <hr>
+  <section class="body-main-centring">
+    <h1>{{ redactor.first_name }} {{ redactor.last_name }} ({{ redactor.username }})</h1>
+    <br>
+    <h6>Registered on site: {{ redactor.date_joined }}</h6>
+    <h6>Last login: {{ redactor.last_login }}</h6>
+    <h6>Years in journalism: {{ redactor.years_of_experience }}</h6>
+    <br>
+    <h5>E-mail: {{ redactor.email }}</h5>
+    <br>
+    <h4>Newspapers:</h4>
+    {% for newspaper in redactor.newspapers.all %}
+      <hr>
+      <p><strong>Title:</strong> {{ newspaper.title }}</p>
+      <p><strong>Date of publish:</strong> {{ newspaper.date_of_publish }}</p>
+      <p><strong>Topics:</strong> {% for topic in newspaper.topic.all %}{{ topic.name }} {% endfor %}</p>
     {% empty %}
-      <p>No newspaper!</p >
+      <p>This author has not written any newspapers yet</p>
     {% endfor %}
-  </div>
-<div>
-<br>
-    <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger">
-      Delete
-    </a>
-
-    <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary">
-      Update
-    </a>
-</div>
+    <br>
+    {% if user.id == redactor.pk %}
+      <a href="{% url 'newspaper:redactor-update' pk=redactor.pk %}" class="btn btn-outline-primary">Edit my profile</a>
+    {% endif %}
+    {% if user.is_staff %}
+      <a href="{% url 'newspaper:redactor-delete' pk=redactor.pk %}" class="btn btn-danger">Delete this profile</a>
+    {% endif %}
+  </section>
 {% endblock %}

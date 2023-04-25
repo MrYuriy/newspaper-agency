@@ -1,14 +1,38 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'base.html' %}
+
 {% block content %}
-<a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page"> Create </a>
-  {% if topic_list %}
-    <ul>
-      {% for topic in topic_list %}
-      <li>
-          <a href="{% url 'newspaper:topic-detail' pk=topic.id %}" > {{topic.name}} </a>
-      </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  <main>
+    <!-- Section -->
+    <div class="section section-md">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <!-- Tab Nav -->
+            <div class="nav-wrapper position-relative mb-2">
+              {% if user.is_authenticated %}
+                <div class="container card mb-2 mt-4 create-button">
+                  <a href="{% url 'newspaper:topic-create' %}" class="btn btn-secondary my-xxl-3">Create new topic</a>
+                </div>
+              {% endif %}
+              <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
+                {% for topic in topic_list %}
+                  <li class="nav-item topic-item">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab"
+                       href="{% url 'newspaper:topic-detail' pk=topic.pk %}" role="tab" aria-controls="tabs-text-2"
+                       aria-selected="false"><strong>{{ topic.name }}</strong></a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <!-- End of Tab Nav -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Section -->
+
+  </main>
+  <section class="pt-lg-3 mb-3 pb-lg-2 mt-3 section section-md">
+
+  </section>
 {% endblock %}

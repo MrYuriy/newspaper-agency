@@ -1,24 +1,56 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'base.html' %}
+
 {% block content %}
-  {% if redactor_list %}
-  <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page"> Create </a>
-  <table class="table">
-    <tr>
-      <th>ID</th>
-      <th>Username</th>
-      <th>link</th>
-      <th>Years of experience</th>
-    </tr>
-  {% for redactor in redactor_list %}
-      <tr>
-        <td>{{ redactor.id }}</td>
-        <td><a href="{{ redactor.get_absolute_url }}">{{ redactor.username }}</a></td>
-        <td>{{ redactor.years_of_experience }}</td>
-      </tr>
-  {% endfor %}
-  </table>
-    {% else %}
-      <p>There are no drivers in the service.</p>
-    {% endif %}
+  <div class="section section-sm pb-0 mb-n5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h3 class="text-center">Our Redactors</h3>
+      </div>
+    </div>
+  </div>
+
+  {% if user.is_staff %}
+    <div class="section section-sm pb-0 mb-n5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-secondary my-xxl-3">Add new redactor</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+
+  <!--End of Title section-->
+  <div class="section section-md">
+    <div class="container">
+      <div class="row mb-5">
+        {% for redactor in redactor_list %}
+          <div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-7 mb-lg-0">
+            <div class="card border-0 overflow-hidden">
+              <div class="position-relative">
+                <img src="{{ ASSETS_ROOT }}/img/team/profile-picture-{{ redactor.pk }}.jpg"
+                     onerror="this.onerror=null;this.src='{{ ASSETS_ROOT }}/img/team/default_image.jpg';"
+                     class="card-img-top"
+                     alt="Portrait">
+              </div>
+              <div
+                  class="card-body position-relative mt-n6 mx-2 bg-white border border-gray-300 text-center rounded">
+                <h3 class="h5 card-title">{{ redactor.first_name }} {{ redactor.last_name }}</h3>
+                <p class="mt-3">Years in journalism: {{ redactor.years_of_experience }}</p>
+                <div class="btn-group">
+                  <a href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">
+                    <button class="btn btn-secondary btn-icon">
+                      <span class="me-1"><span class="far fa-user"></span></span>
+                      View profile
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

@@ -1,20 +1,41 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'base.html' %}
+
 {% block content %}
 
-    <h1> Topic {{ topic.name }} </h1>
+  <section class="pt-lg-3 mb-3 pb-lg-2 mt-3 section section-md">
+    <div class="container pt-lg-3 mb-3 pb-lg-2 mt-3">
+      <h1>
+        Topic: {{ topic.name }}
+        {% if user.is_authenticated %}
+          <a href="{% url 'newspaper:topic-delete' pk=topic.pk %}" class="btn btn-danger my-xxl-3 delete-topic">Delete this topic</a>
+        {% endif %}
+      </h1>
+    </div>
     {% if topic.newspapers.all %}
-        {% for newspaper in  topic.newspapers.all %}
-           <p>{{ newspaper.title }}</p>
-        {% endfor %}
-    {% else %}
-     <p>No</p>
+      {% for newspaper in topic.newspapers.all %}
+        <div class="container card pt-lg-3 mb-3 pb-lg-2 mt-3">
+          <h3>{{ newspaper.title }}</h3>
+          <br>
+          <p>Created at: {{ newspaper.date_of_publish }}</p>
+          <p class="blockquote mb-0">
+            Redactors:
+            {% for publisher in newspaper.publishers.all %}
+              {{ publisher.first_name }} {{ publisher.last_name }}
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <span>
+            <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}" class="btn btn-primary my-xxl-3">
+              Read more
+            </a>
+          </span>
+        </div>
+      {% endfor %}
+    {%  else %}
+      <div class="container pt-lg-3 mb-3 pb-lg-2 mt-3">
+        <h3>There are no newspapers for this topic yet!</h3>
+      </div>
     {% endif %}
-    <a href="{% url 'newspaper:topic-delete' pk=topic.id %}" class="btn btn-danger">
-      Delete
-    </a>
+  </section>
 
-    <a href="{% url 'newspaper:topic-update' pk=topic.id %}" class="btn btn-secondary">
-      Update
-    </a>
 {% endblock %}

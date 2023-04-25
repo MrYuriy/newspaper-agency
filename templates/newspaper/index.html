@@ -1,19 +1,65 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <h1>Newspaper Agency Service Home</h1>
-  <p>Welcome to Best Agency Ever!</p>
 
-  <h2>Dynamic content</h2>
-  <p>The newspaper agency service has the following record counts:</p>
+  <section class="section-header overflow-hidden pt-lg-5 pb-lg-12 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="fw-bolder display-2">
+            Newspaper Agent
+          </h1>
+          <h2 class="lead fw-normal text-muted mb-4 px-lg-10">
+            Best virtual manager to organize your redactors team work
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <ul>
-    <li><strong>Redactor:</strong> {{ num_topics }}</li>
-    <li><strong>Newspaper:</strong> {{ num_newspapers }}</li>
-    <li><strong>Topic:</strong> {{ num_redactor }}</li>
-  </ul>
+  <div class="section py-0">
+    <div class="container mt-n10 mt-lg-n12 z-2">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10"><img src="{{ ASSETS_ROOT }}/img/presentation-mockup-new.jpg"
+                                           alt="Pixel Free Mockup"></div>
+      </div>
+    </div>
+  </div>
 
-  <p>You have visited this page
-      {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
+  <section class="section section-lg">
+    <div class="container">
+      <div class="row justify-content-center mb-5 mb-lg-6">
+        <div class="col-6 col-md-3 text-center mb-4">
+          <a href="{% url 'newspaper:topic-list' %}">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-puzzle-piece text-tertiary" style="color: #d7ae19;"></span>
+            </div>
+            <h3 class="fw-bolder">{{ num_topics }}</h3>
+            <h5 class="text-gray">Topics we work on</h5>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 text-center mb-4">
+          <a href="{% url 'newspaper:redactor-list' %}">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-pager text-tertiary"></span>
+            </div>
+            <h3 class="fw-bolder">{{ num_redactors }}</h3>
+            <h5 class="text-gray">Redactors in our team</h5>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3 text-center">
+          <a href="{% url 'newspaper:newspaper-list' %}">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-star text-tertiary "></span>
+            </div>
+            <h3 class="fw-bolder">{{ num_newspapers }}</h3>
+            <h5 class="text-gray">Newspapers posted by our redactors</h5>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 {% endblock %}

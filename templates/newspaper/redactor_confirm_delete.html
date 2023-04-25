@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete {{ redactor.username }} redactor?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <a class="btn btn-primary" href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">Cancel</a>
-  </form>
+  <section class="body-main-centring">
+    <h1>Are you sure you want to delete this redactor?</h1>
+    <br>
+    <h4>*Warning: you will not be able to restore this profile!</h4>
+    <br>
+    <form action="" method="post">
+      {% csrf_token %}
+      <br>
+      <input type="submit" value="Yes" class="btn btn-danger">
+      <a class="btn btn-secondary" href="{% url 'newspaper:redactor-detail' pk=redactor.pk %}">Cancel</a>
+    </form>
+  </section>
 {% endblock %}

@@ -21,7 +21,7 @@ from .views import (
 urlpatterns = [
     path("", index, name="index"),
     path("topics", TopicListView.as_view(), name="topic-list"),
-    path("topic/create", TopicCreateView.as_view(), name="topic-create"),
+    path("topic/create/", TopicCreateView.as_view(), name="topic-create"),
     path("topic/<int:pk>/update/", TopicUpdateView.as_view(), name="topic-update"),
     path("topic/<int:pk>/delete/", TopicDeleteView.as_view(), name="topic-delete"),
     path("topic/<int:pk>", TopicDetailView.as_view(), name="topic-detail"),

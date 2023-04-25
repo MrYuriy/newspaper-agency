@@ -1,34 +1,43 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load crispy_forms_filters %}
-  {% block content %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="container card mb-2 mt-4 create-button">
+      <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-secondary my-xxl-3">Create new newspaper</a>
+    </div>
+  {% endif %}
+  <section class="pt-lg-3 mb-3 pb-lg-2 mt-3 section section-md">
     {% if newspaper_list %}
-        <h1>
-          Newspaper List
-        </h1>
-{% include "includes/search_form.html" %}
-       <div>
-             <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page"> Create </a>
-        {% for newspaper in newspaper_list %}
-        <ul>
-          <li>
-            <a href="{%url 'newspaper:newspaper-detail' pk=newspaper.id %}">
-              {{newspaper.title}}
-            </a>
-
-            <br>
-          {% for redactor in newspaper.publishers.all %}
-            {{redactor.username}}
-          {% endfor %}
-            <br>
-          {{newspaper.topic}}
-          {% for topic in newspaper.topic.all %}
-            {{topic.name}}
-          {% endfor %}
-          </li>
-        </ul>
-
-        {% endfor %}
-
-    {%endif%}
-       </div>
-  {% endblock %}
+      <div class="container pt-lg-3 mb-3 pb-lg-2 mt-3">
+        <form action="" method="get" class="form-inline" novalidate>
+          {{ search_form|crispy }}
+          <br>
+          <input type="submit" value="Search" class="btn btn-secondary">
+        </form>
+      </div>
+      {% for newspaper in newspaper_list %}
+        <div class="container card pt-lg-3 mb-3 pb-lg-2 mt-3">
+          <h3>{{ newspaper.title }}</h3>
+          <p>Related topics:
+            {% for topic in newspaper.topic.all %}
+              {{ topic.name }}
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <p>Created at: {{ newspaper.date_of_publish }}</p>
+          <p class="blockquote mb-0">
+            Redactors:
+            {% for publisher in newspaper.publishers.all %}
+              {{ publisher.first_name }} {{ publisher.last_name }}
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <span><a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}" class="btn btn-primary my-xxl-3">Read more</a></span>
+        </div>
+      {% endfor %}
+    {%  else %}
+      <h3>There are no newspapers yet!</h3>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,13 +1,40 @@
-<ul class="sidebar-nav list-group">
- {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
- {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
- {% endif %}
-  <br>
-  <li class="list-group-item"><a href="{% url 'newspaper:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper:redactor-list' %}">All Redactor</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper:newspaper-list' %}">All Newspaper</a></li>
-  <li class="list-group-item"><a href="{% url 'newspaper:topic-list' %}">All Topic</a></li>
-</ul>
+<header class="header-global">
+  <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-expand-lg navbar-theme-primary headroom navbar-dark bg-primary header-custom">
+    <div class="container position-relative">
+      <div class="navbar-collapse collapse me-auto" id="navbar_global">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item">
+            <a href="{% url 'newspaper:index' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+              Redactors
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+              newspapers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'newspaper:topic-list' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3">
+              Topics
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+        <div class="d-flex align-items-center">
+          <span class="btn-outline-gray-100 me-md-3">Logged in as:  {{ user.get_username }}</span>
+          <a href="{% url 'logout' %}"
+             class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3 ms-3"><span class="fas fa-sign-out-alt me-2"></span> Logout</a>
+        </div>
+      {% else %}
+        <a href="{% url 'login' %}?next={{request.path}}"
+           class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> Login</a>
+      {% endif %}
+    </div>
+  </nav>
+</header>

@@ -2,11 +2,16 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} Newspaper </h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+  <section class="body-main-centring">
+    <h1>{{ object|yesno:"Update,Create new" }} newspaper</h1>
+    <br>
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <br>
+      <input type="submit" value="Submit" class="btn btn-primary">
+      <a class="btn btn-outline-primary" href="{% url 'newspaper:newspaper-list' %}">Cancel</a>
+      <br>
+    </form>
+  </section>
 {% endblock %}
