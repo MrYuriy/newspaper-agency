@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(requests):
     num_topics = Topic.objects.count()
     num_newspapers = Newspaper.objects.count()
-    num_redactor = Redactor.objects.count()
+    num_redactors = Redactor.objects.count()
 
     num_visits = requests.session.get("num_visits", 0)
     requests.session["num_visits"] = num_visits + 1
@@ -21,7 +21,7 @@ def index(requests):
     context = {
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,
-        "num_redactor": num_redactor,
+        "num_redactors": num_redactors,
         "num_visits": num_visits
     }
     return render(requests, "newspaper/index.html", context=context)
@@ -56,7 +56,7 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class NewspaperListView(generic.ListView):
     model = Newspaper
-    paginate_by = 5
+    paginate_by = 1
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperListView, self).get_context_data(**kwargs)
