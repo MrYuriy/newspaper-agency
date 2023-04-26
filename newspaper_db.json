@@ -41,10 +41,12 @@
     "pk": 2,
     "fields": {
       "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
       "years_of_experience": 3,
       "username": "yurii.admin",
       "email": "yuriibabiuk@gmail.com",
-      "password": "ADM56984",
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=!",
       "first_name": "Yurii",
       "last_name": "Babiuk"
     }
@@ -68,45 +70,45 @@
     "pk": 1,
     "fields": {
       "title": "Scientists Discover New Planet",
-      "content": "A group of scientists has discovered a new planet in a nearby galaxy.",
+      "content": "Exciting news has recently emerged from the world of astronomy, as scientists have announced the discovery of a new planet. This discovery is the result of extensive research and observation, and it promises to expand our understanding of the universe in exciting ways.\n\nThe new planet, which has been named \"Kepler-452b,\" is located approximately 1,400 light-years away from Earth in the constellation Cygnus. It is about 60% larger than our planet, and it orbits a star that is similar to our sun, but slightly older. What makes this discovery particularly exciting is that the planet is located within the \"habitable zone\" of its star, which means that it may have conditions that are suitable for life.\n\nScientists believe that Kepler-452b has a rocky surface, like Earth, and that it may have an atmosphere that is similar to ours as well. It takes the planet approximately 385 days to orbit its star, which is only slightly longer than Earth's orbital period. This means that the planet may have similar seasons and weather patterns to our own planet.\n\nThe discovery of Kepler-452b is a significant breakthrough in the search for habitable planets beyond our solar system. It is one of the most Earth-like planets that has been discovered to date, and it offers scientists a unique opportunity to study the conditions necessary for life to exist on other planets. The discovery has generated excitement and enthusiasm among scientists and the general public alike, as it represents a major step forward in our understanding of the universe and our place in it.",
       "published_date": "2023-04-18",
-      "topic": 1,
-      "publishers": [1]
+      "topic": [1],
+      "publishers": [1,2]
     }
   },
 
   {
     "model": "newspaper.newspaper",
-    "pk": 1,
+    "pk": 2,
     "fields": {
-      "title": "President Signs New Trade Agreement",
-      "content": "The president has signed a new trade agreement with several countries.",
+      "title": "President Signs New Trade Agreement Part 1",
+      "content": "Exciting news from the world of international trade, as the President has signed a new trade agreement with a key partner country. This agreement promises to strengthen economic ties between the two countries and promote increased trade and investment.\n\nThe new trade agreement includes provisions to reduce tariffs and other barriers to trade, making it easier and more cost-effective for businesses in both countries to sell their goods and services to each other. It also includes protections for intellectual property, which will help to encourage innovation and investment in new technologies and products.\n\nIn addition to the economic benefits, the new trade agreement also has important geopolitical implications. It strengthens the strategic partnership between the two countries and demonstrates a commitment to working together to promote peace and stability in the region.\n\nThe signing of the new trade agreement represents a significant achievement for both countries and underscores the importance of international cooperation in today's global economy. It will help to create jobs, increase economic growth, and promote greater prosperity for people on both sides of the agreement.\n\nWhile the new trade agreement is not without its critics, who argue that it may lead to job losses or other negative consequences, supporters point to the numerous benefits it will bring. Overall, it represents a positive step forward for both countries and a testament to the power of trade to drive economic growth and improve the lives of people around the world.",
       "published_date": "2023-04-17",
-      "topic": 2,
-      "publishers": [2]
+      "topic": [2, 1],
+      "publishers": [2,3]
     }
   },
 
     {
     "model": "newspaper.newspaper",
-    "pk": 1,
+    "pk": 3,
     "fields": {
-      "title": "President Signs New Trade Agreement",
-      "content": "The president has signed a new trade agreement with several countries.",
+      "title": "President Signs New Trade Agreement Part 2",
+      "content": "In a significant move for international trade, the President has recently signed a new trade agreement with a major partner country. This new agreement is set to strengthen economic ties between the two nations and promote greater cooperation in areas such as investment, trade, and technology.\n\nThe new trade agreement has several key provisions aimed at boosting economic growth and job creation. These include reducing tariffs and other barriers to trade, providing greater protection for intellectual property, and improving access to markets for businesses in both countries. These measures are expected to create new opportunities for companies in various industries, including agriculture, manufacturing, and services.\n\nMoreover, the new trade agreement also has geopolitical implications, as it reinforces the strategic partnership between the two countries and their commitment to promoting stability and security in the region. By working together to expand trade and investment, the two countries are expected to strengthen their relationship and further advance common goals.\n\nWhile the new trade agreement has been subject to some criticism, supporters argue that it will bring significant benefits to both countries. By opening up new markets and reducing trade barriers, the agreement is expected to increase economic growth and create new job opportunities, helping to raise living standards and improve quality of life for people on both sides.\n\nOverall, the signing of this new trade agreement represents an important milestone in international trade and a demonstration of the power of cooperation to drive economic growth and prosperity. As the global economy continues to evolve, agreements like this will play an increasingly important role in shaping the future of international trade and investment.",
       "published_date": "2023-04-17",
-      "topic": 2,
-      "publishers": [2]
+      "topic": [2, 1],
+      "publishers": [3,2]
     }
   },
 
       {
     "model": "newspaper.newspaper",
-    "pk": 1,
+    "pk": 4,
     "fields": {
       "title": "New App Helps You Find Parking Spaces",
-      "content": "A new mobile app has been released that helps drivers find available parking spaces in busy areas.",
+      "content": "If you've ever found yourself circling around a crowded parking lot, searching for a spot to park, you'll be pleased to hear about a new app that promises to make this frustrating experience a thing of the past. The app, which is available for download on both iOS and Android devices, is designed to help drivers find parking spaces quickly and easily.\n\nUsing the app is simple. Once you've downloaded it, you can enter your destination and the app will provide you with a list of nearby parking options. These options include both on-street and off-street parking, and the app will show you the location of each spot on a map. You can also filter the results by factors such as price, availability, and distance from your destination.\n\nOnce you've selected a parking spot, the app will guide you to it using turn-by-turn directions. It will also provide you with information on parking rates, payment options, and any restrictions or time limits that apply.\n\nThe app has several benefits for drivers. First and foremost, it can save you time and reduce the stress of finding a parking spot. It can also help you save money by finding cheaper parking options or avoiding expensive parking garages. Additionally, it can help reduce traffic congestion by directing drivers to underutilized parking spots, reducing the number of cars circling around looking for a spot.\n\nOverall, the new app represents a significant step forward in the quest to make urban mobility more efficient and user-friendly. As more and more people move to cities and rely on cars for transportation, tools like this will become increasingly important in helping to reduce traffic congestion and improve the overall driving experience.",
       "published_date": "2023-04-16",
-      "topic": 3,
+      "topic": [3, 1],
       "publishers": [1, 2]
     }
   }

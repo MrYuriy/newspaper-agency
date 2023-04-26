@@ -56,7 +56,7 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class NewspaperListView(generic.ListView):
     model = Newspaper
-    paginate_by = 1
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperListView, self).get_context_data(**kwargs)
