@@ -97,7 +97,7 @@ class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class RedactorListView(generic.ListView):
     model = Redactor
-    paginate_by = 5
+    paginate_by = 3
 
 
 class RedactorDetailView(generic.DetailView):

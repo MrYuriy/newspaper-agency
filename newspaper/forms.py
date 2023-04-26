@@ -2,12 +2,24 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from .models import Redactor, Newspaper, Topic
+from django.core.validators import MaxValueValidator
 
 
 class RedactorCreationForm(UserCreationForm):
+    max_year_experience = 30
+
+    years_of_experience = forms.IntegerField(
+        required=True,
+        validators=[MaxValueValidator(max_year_experience)]
+    )
+
     class Meta(UserCreationForm):
         model = Redactor
-        fields = UserCreationForm.Meta.fields + ("years_of_experience",)
+        fields = fields = UserCreationForm.Meta.fields + (
+            "first_name",
+            "last_name",
+            "years_of_experience",
+        )
 
 
 class NewspaperCreationUpdateForm(forms.ModelForm):
