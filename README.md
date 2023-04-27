@@ -18,12 +18,13 @@ To run this projects locally, use the following steps:
 1. Clone repo from GIT:
 
 `git clone https://github.com/MrYuriy/newspaper-agency.git`
- after "Clone repo from GIT:" you need to do cd newspaper-agency
+cd newspaper-agency
 
 2. If you are using PyCharm - it may propose you to automatically create venv for your project 
 and install requirements in it, but if not: 
 
 ```python
+cd newspaper_agency
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)

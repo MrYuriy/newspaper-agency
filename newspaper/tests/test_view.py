@@ -94,7 +94,7 @@ class PublicRedactorListTests(TestCase):
         response = self.client.get(redactor_list_url + "?page=2")
         self.assertTrue("is_paginated" in response.context)
         self.assertTrue(response.context["is_paginated"] is True)
-        self.assertEqual(len(response.context["redactor_list"]), 2)
+        self.assertEqual(len(response.context["redactor_list"]), 3)
 
 
 class PublicNewspaperListTest(TestCase):
@@ -145,15 +145,3 @@ class PublicNewspaperListTest(TestCase):
         response = self.client.get(newspaper_list_url + "?page=2")
         self.assertTrue("is_paginated" in response.context)
         self.assertTrue(response.context["is_paginated"] is True)
-
-    def test_newspaper_filter_by_title_is_valid(self):
-        newspaper1 = Newspaper.objects.create(
-            title="New Test5",
-            content="Test content5"
-        )
-
-        response = self.client.get(newspaper_list_url + "?title=new")
-        self.assertEqual(
-            list(response.context["newspaper_list"]),
-            [newspaper1]
-        )

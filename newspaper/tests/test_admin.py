@@ -5,16 +5,15 @@ from django.urls import reverse
 
 class AdminSiteTests(TestCase):
     def setUp(self) -> None:
-        self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
-            username="yurii.admin",
-            password="1qazcde3",
+            username="admin",
+            password="admin1234",
         )
         self.client.force_login(self.admin_user)
         self.redactor = get_user_model().objects.create_user(
-            username="Redactor",
-            password="Password",
-            years_of_experience=5
+            username="spiderman",
+            password="spider1234",
+            years_of_experience=10
         )
 
     def test_redactor_years_of_experience_listed(self):
