@@ -18,6 +18,7 @@ To run this projects locally, use the following steps:
 1. Clone repo from GIT:
 
 `git clone https://github.com/MrYuriy/newspaper-agency.git`
+ after "Clone repo from GIT:" you need to do cd newspaper-agency
 
 2. If you are using PyCharm - it may propose you to automatically create venv for your project 
 and install requirements in it, but if not: 
@@ -39,7 +40,7 @@ pip install -r requirements.txt
 
 Upon loading data from fixture you can use following superuser (or create another one by yourself):
   - Login: `yurii.admin`
-  - Password: `1qazcde3`
+  - Password: `pasword45!`
 
 ### Environment variables
    
