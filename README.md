@@ -41,5 +41,12 @@ Upon loading data from fixture you can use following superuser (or create anothe
   - Login: `yurii.admin`
   - Password: `1qazcde3`
 
+### Environment variables
+   
+The secret key to this project is saved within .env file, which is hidden.
+You can create your own `.env` file to store your `SECRET_KEY`, `DB_NAME` and other environment 
+variables like it is shown in `.env_sample` file. 
+
+
 Feel free to add more data using admin panel, if needed.
 ![Website Interface](demo.png)
