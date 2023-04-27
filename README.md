@@ -24,7 +24,7 @@ cd newspaper-agency
 and install requirements in it, but if not: 
 
 ```python
-cd newspaper_agency
+cd newspaper-agency
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)
