@@ -20,7 +20,7 @@ from .views import (
 
 urlpatterns = [
     path("", index, name="index"),
-    path("topics", TopicListView.as_view(), name="topic-list"),
+    path("topics/", TopicListView.as_view(), name="topic-list"),
     path("topic/create/", TopicCreateView.as_view(), name="topic-create"),
     path(
         "topic/<int:pk>/update/",
@@ -32,10 +32,10 @@ urlpatterns = [
         TopicDeleteView.as_view(),
         name="topic-delete"
     ),
-    path("topic/<int:pk>", TopicDetailView.as_view(), name="topic-detail"),
-    path("newspapers", NewspaperListView.as_view(), name="newspaper-list"),
+    path("topic/<int:pk>/", TopicDetailView.as_view(), name="topic-detail"),
+    path("newspapers/", NewspaperListView.as_view(), name="newspaper-list"),
     path(
-        "newspaper/<int:pk>", NewspaperDetailView.as_view(),
+        "newspaper/<int:pk>/", NewspaperDetailView.as_view(),
         name="newspaper-detail"
     ),
     path(
@@ -53,9 +53,9 @@ urlpatterns = [
         NewspaperDeleteView.as_view(),
         name="newspaper-delete"
     ),
-    path("redactors", RedactorListView.as_view(), name="redactor-list"),
+    path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path(
-        "redactor/<pk>", RedactorDetailView.as_view(),
+        "redactor/<pk>/", RedactorDetailView.as_view(),
         name="redactor-detail"
     ),
     path(
