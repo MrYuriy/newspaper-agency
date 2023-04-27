@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from .models import Redactor, Newspaper, Topic
 from django.core.validators import MaxValueValidator
+from django.core.exceptions import ValidationError
 
 
 class RedactorCreationForm(UserCreationForm):
@@ -20,6 +21,10 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
             "years_of_experience",
         )
+
+    def validate_max_year_experience(self):
+        if self.max_year_experience > 30:
+            raise ValidationError('Max year experience should not exceed 30 years')
 
 
 class NewspaperCreationUpdateForm(forms.ModelForm):

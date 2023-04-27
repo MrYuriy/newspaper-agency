@@ -35,13 +35,13 @@ urlpatterns = [
     path("topic/<int:pk>/", TopicDetailView.as_view(), name="topic-detail"),
     path("newspapers/", NewspaperListView.as_view(), name="newspaper-list"),
     path(
-        "newspaper/<int:pk>/", NewspaperDetailView.as_view(),
-        name="newspaper-detail"
-    ),
-    path(
         "newspaper/create/",
         NewspaperCreateView.as_view(),
         name="newspaper-create"
+    ),
+    path(
+        "newspaper/<int:pk>/", NewspaperDetailView.as_view(),
+        name="newspaper-detail"
     ),
     path(
         "newspaper/<int:pk>/update/",
@@ -55,13 +55,13 @@ urlpatterns = [
     ),
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path(
-        "redactor/<pk>/", RedactorDetailView.as_view(),
-        name="redactor-detail"
-    ),
-    path(
         "redactor/create/",
         RedactorCreateView.as_view(),
         name="redactor-create"
+    ),
+    path(
+        "redactor/<pk>/", RedactorDetailView.as_view(),
+        name="redactor-detail"
     ),
     path(
         "redactor/<int:pk>/update/",
