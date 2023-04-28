@@ -18,13 +18,14 @@ To run this projects locally, use the following steps:
 1. Clone repo from GIT:
 
 `git clone https://github.com/MrYuriy/newspaper-agency.git`
+```python
 cd newspaper-agency
+```
 
 2. If you are using PyCharm - it may propose you to automatically create venv for your project 
 and install requirements in it, but if not: 
 
 ```python
-cd newspaper-agency
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)
@@ -35,9 +36,6 @@ pip install -r requirements.txt
 
 `python manage.py migrate`
 
-4. Use the following command to load prepared data from fixture:
-  
-`python manage.py loaddata newspaper_db.json`
 
 Upon loading data from fixture you can use following superuser (or create another one by yourself):
   - Login: `yurii.admin`
