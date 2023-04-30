@@ -46,5 +46,10 @@ You can create your own `.env` file to store your `SECRET_KEY`, `DB_NAME` and ot
 variables like it is shown in `.env_sample` file. 
 
 
+### Deploy
+
+[Newspaper Agent deployed on Render](https://newspaper-s7vb.onrender.com)
+
+
 Feel free to add more data using admin panel, if needed.
 ![Website Interface](demo.png)
