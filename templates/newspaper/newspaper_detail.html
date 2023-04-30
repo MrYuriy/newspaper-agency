@@ -5,7 +5,7 @@
     <h1 class="newspaper-detail-h1">{{ newspaper.title }}</h1>
     <br>
     <p class="newspaper-content">{{ newspaper.content }}</p>
-    <p><i>{{ newspaper.date_of_publish }}</i></p>
+    <p><i>{{ newspaper.published_date }}</i></p>
     <p>
       <strong>Author{{ newspaper.publishers.count|pluralize }}:</strong>
       {% for publisher in newspaper.publishers.all %}
